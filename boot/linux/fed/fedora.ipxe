@@ -7,6 +7,7 @@ menu fedora
 item --gap --             ------------------------- Options ----------------------------------
 item fed-32 Fedora 32-bit 
 item fed-64 Fedora 64-bit
+item fed-64-aw Fedora Atomic Workstation 64-bit
 item --key c kickoff (C)ustom Kickstart script
 item --key g goback (G)o back to previous menu
 
@@ -18,19 +19,23 @@ read edition
 echo -n Kickstart location :
 read script-location
 
-kernel http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/26/Everything/${arch}/os/images/pxeboot/vmlinuz repo=http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/26/EverythinG/${ARCH}/os/ initrd=initrd.img ip=dhcp ks=${script-location}
-initrd http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/26/Everything/${arch}/os/images/pxeboot/initrd.img
+kernel http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/Everything/${arch}/os/images/pxeboot/vmlinuz repo=http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/EverythinG/${ARCH}/os/ initrd=initrd.img ip=dhcp ks=${script-location}
+initrd http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/Everything/${arch}/os/images/pxeboot/initrd.img
 boot
 
 :fed-32
-kernel http://mirror.math.princeton.edu/pub/fedora-secondary/releases/26/Everything/i386/os/images/pxeboot/vmlinuz-PAE repo=http://mirror.math.princeton.edu/pub/fedora-secondary/releases/26/Everything/i386/os initrd=initrd-PAE.img ip=dhcp
-initrd http://mirror.math.princeton.edu/pub/fedora-secondary/releases/26/Everything/i386/os/images/pxeboot/initrd-PAE.img
+kernel http://mirror.math.princeton.edu/pub/fedora-secondary/releases/27/Everything/i386/os/images/pxeboot/vmlinuz-PAE repo=http://mirror.math.princeton.edu/pub/fedora-secondary/releases/27/Everything/i386/os initrd=initrd-PAE.img ip=dhcp
+initrd http://mirror.math.princeton.edu/pub/fedora-secondary/releases/27/Everything/i386/os/images/pxeboot/initrd-PAE.img
 boot
 
 :fed-64
-kernel http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/26/Everything/x86_64/os/images/pxeboot/vmlinuz repo=http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/26/Everything/x86_64/os initrd=initrd.img ip=dhcp
-initrd http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/26/Everything/x86_64/os/images/pxeboot/initrd.img
+kernel http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/Everything/x86_64/os/images/pxeboot/vmlinuz repo=http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/Everything/x86_64/os initrd=initrd.img ip=dhcp
+initrd http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/Everything/x86_64/os/images/pxeboot/initrd.img
 boot
+
+:fed-64-aw
+kernel http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/WorkstationOstree/x86_64/os/images/pxeboot/vmlinuz repo=http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/WorkstationOstree/x86_64/os initrd=initrd.img ip=dhcp
+initrd http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/WorkstationOstree/x86_64/os/images/pxeboot/initrd.img
 
 :goback
 chain http://${server-ip}/boot/linux/fed.ipxe
