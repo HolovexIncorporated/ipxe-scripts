@@ -36,6 +36,7 @@ boot
 :fed-64-aw
 kernel http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/WorkstationOstree/x86_64/os/images/pxeboot/vmlinuz repo=http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/WorkstationOstree/x86_64/os initrd=initrd.img ip=dhcp
 initrd http://mirror.cs.princeton.edu/pub/mirrors/fedora/linux/releases/27/WorkstationOstree/x86_64/os/images/pxeboot/initrd.img
+boot
 
 :goback
 chain http://${server-ip}/boot/linux/fed.ipxe
