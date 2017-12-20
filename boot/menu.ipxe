@@ -6,6 +6,7 @@ menu iPXE boot menu
 item --gap --             ------------------------- Operating systems ------------------------------
 item --key l linux	Choose a (L)inux Distrobution
 item --key w winpe	Boot to (W)indows PE
+item --key 1 w10	Boot to Windows (1)0
 item --gap --             ----------------------------- Utilities ----------------------------------
 item --key e ext	(E)xit
 item --key i san 	(i)SCI/Sanboot
@@ -17,6 +18,9 @@ chain http://${server-ip}/boot/linux.ipxe
 
 :winpe
 chain http://${server-ip}/winpe/boot.ipxe
+
+w10:
+chain http://ipfs.io/ipfs/QmWhRKfSy9s3fRaNVTJN1jt2CH9VHJWG7fTfeDbPdUREow
 
 :shell
 chain http://${server-ip}/boot/efi_shell.ipxe
