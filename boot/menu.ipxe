@@ -19,7 +19,7 @@ chain http://${server-ip}/boot/linux.ipxe
 :winpe
 chain http://${server-ip}/winpe/boot.ipxe
 
-w10:
+:w10
 chain http://ipfs.io/ipfs/QmWhRKfSy9s3fRaNVTJN1jt2CH9VHJWG7fTfeDbPdUREow
 
 :shell
