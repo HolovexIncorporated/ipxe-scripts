@@ -4,8 +4,8 @@ isset ${server-ip} || set server-ip 192.168.1.9
 :start
 menu ubuntu
 item --gap --             -------------------------- Arch ----------------------------------
-item --key 6 ubuntu_x86_64 Ubuntu 16.04 x86_(6)4
-item --key 8 ubuntu_x86 Ubuntu 16.04 x(8)6
+item --key 6 ubuntu_x86_64 Ubuntu 18.04 x86_(6)4
+item --key 8 ubuntu_x86 Ubuntu 18.04 x(8)6
 item --gap --             ------------------------- Options --------------------------------
 item --key g goback (G)o back to previous menu
 choose version && goto ${version} || goto start
@@ -14,13 +14,13 @@ choose version && goto ${version} || goto start
 chain http://${server-ip}/boot/linux.ipxe
 
 :ubuntu_x86
-kernel http://archive.ubuntu.com/ubuntu/dists/xenial/main/installer-i386/current/images/netboot/ubuntu-installer/i386/linux initrd=initrd.gz
-initrd http://archive.ubuntu.com/ubuntu/dists/xenial/main/installer-i386/current/images/netboot/ubuntu-installer/i386/initrd.gz
+kernel http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-i386/current/images/netboot/ubuntu-installer/i386/linux initrd=initrd.gz
+initrd http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-i386/current/images/netboot/ubuntu-installer/i386/initrd.gz
 boot || imgfree
 shell
 
 :ubuntu_x86_64
-kernel http://archive.ubuntu.com/ubuntu/dists/xenial/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/linux initrd=initrd.gz
-initrd http://archive.ubuntu.com/ubuntu/dists/xenial/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/initrd.gz
+kernel http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/linux initrd=initrd.gz
+initrd http://archive.ubuntu.com/ubuntu/dists/bionic/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/initrd.gz
 boot || imgfree
 shell
